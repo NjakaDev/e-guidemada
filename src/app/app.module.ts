@@ -1,16 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
+import { HomepageComponent } from './comp/public/homepage/homepage.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomepageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        redirectTo: '/homepage',
+        pathMatch: 'full'
+      },
+      {
+        path: 'homepage',
+        component: HomepageComponent
+      }
+      
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
